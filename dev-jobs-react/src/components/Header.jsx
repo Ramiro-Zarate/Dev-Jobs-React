@@ -1,4 +1,4 @@
-function Header(){
+export function Header(){
   return(
   <header>
       <h1>
@@ -19,5 +19,6 @@ function Header(){
         <button>Publicar un empleo</button>
         <button>Iniciar Sesión</button>
       </div>
-    </header>)
+    </header>
+    )
 }
