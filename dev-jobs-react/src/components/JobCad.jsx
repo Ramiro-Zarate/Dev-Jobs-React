@@ -1,5 +1,9 @@
-function JobCard(){
+export function JobCard(){
     return(
-        <h1></h1>
+        <section>
+            <article className="job-listing">
+                <h3>Desarrollador de Software Junior</h3>
+            </article>
+        </section>
     )
 }
