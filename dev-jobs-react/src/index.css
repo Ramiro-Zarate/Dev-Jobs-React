@@ -205,7 +205,7 @@ form input[type="text"] {
     }
 }
 
-main > section:nth-child(2){
+.tarjetasResultado{
     max-width: 62rem;
     width: 100%;
     display: flex;
@@ -228,7 +228,7 @@ article{
     border-bottom: none;
 }
 
-.tarjetasResultado > article{
+.tarjetasResultado article{
     border-bottom: none;
 
     button{

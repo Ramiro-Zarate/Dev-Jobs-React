@@ -49,7 +49,7 @@ export function SearchFormSection(){
             <option value="lead">Lead</option>
           </select>
         </div>
-      <h3>Resultados de búsqueda</h3>
+    
 
       </section>
     )

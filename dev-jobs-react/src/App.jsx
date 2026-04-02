@@ -4,6 +4,8 @@ import { Footer } from './components/Footer'
 import { Pagination } from './components/Pagination'
 import { SearchFormSection } from './components/SearchFormSection'
 import { JobCard } from './components/JobCad'
+import { JobListingCard } from './components/JobListingCard'
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -17,11 +19,8 @@ function App() {
     <main>
       <SearchFormSection />
 
-      <section className="tarjetasResultado">
-        <h3>Resultados de búsqueda</h3>
-        <JobCard />
+      <JobListingCard />
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
-      </section>
     </main>
     <Footer />
   </>
