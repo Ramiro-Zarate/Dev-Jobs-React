@@ -1,14 +1,14 @@
 import { JobCard } from './JobCad'
-import jobsData from '../data.json'
 
 
-export function JobListingCard(){
+
+export function JobListingCard( {jobs} ){
     return (
             
             <section className="tarjetasResultado">
             <div className="job-listing">
-                {jobsData.map(job => (
-                    <JobCard job={job} />
+                {jobs.map(job => (
+                    <JobCard key={job.id} job={job} />
                 ))}
             </div>
             </section>
