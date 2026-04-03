@@ -9,7 +9,7 @@ export function JobCard({job}){
             <div>
                 <h3>{job.titulo}</h3>
                 <small>{job.empresa} | {job.ubicacion}</small>
-                <p>{job.description}</p>
+                <p>{job.descripcion}</p>
             </div>
             <button className="button-apply-job">Aplicar</button>
             
