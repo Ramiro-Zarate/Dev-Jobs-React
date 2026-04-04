@@ -1,0 +1,49 @@
+.header {
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    }
+}
+
+.headerNav {
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+
+    a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    font-weight: 500;
+
+    &:hover, &:focus {
+        color: var(--primary);
+        outline: none;
+    }
+    }
+}
+
+.buttonSection {
+    display: flex;
+    gap: .5rem;
+}
+
+.headerButton {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #334155;
+    color: var(--text-primary);
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+}

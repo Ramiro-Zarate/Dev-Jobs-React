@@ -1,6 +1,8 @@
+import styles from './Header.module.css'
+
 export function Header(){
   return(
-  <header>
+  <header className={styles.header}>
       <h1>
         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -9,15 +11,15 @@ export function Header(){
         </svg>
         DevJobs
       </h1>
-      <nav>
+      <nav className={styles.headerNav}>
         <a href="">Buscar</a>
         <a href="./empleos/empleos.html">Empleos</a>
         <a href="">Empresas</a>
         <a href="">Salarios</a>
       </nav>
-      <div>
-        <button>Publicar un empleo</button>
-        <button>Iniciar Sesión</button>
+      <div className={styles.buttonSection}>
+        <button className={styles.headerButton}>Publicar un empleo</button>
+        <button className={styles.headerButton}>Iniciar Sesión</button>
       </div>
     </header>
     )

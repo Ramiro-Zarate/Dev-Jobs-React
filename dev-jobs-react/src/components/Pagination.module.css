@@ -11,7 +11,7 @@
         width: 2.5rem;
         height: 2.5rem;
         text-decoration: none;
-        color: var(--text-muted);
+        color: var(--text-primary);
         border-radius: .3rem;
         transition: all .3s;
 

@@ -60,54 +60,6 @@ h1 + p {
     margin-bottom: 2rem;
 }
 
-/* Header */
-header {
-    border-bottom: 1px solid var(--border);
-    background: var(--background);
-    padding: .5rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-
-    h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    }
-}
-
-/* Navegación del header a otras páginas */
-nav {
-    align-items: center;
-    gap: 1rem;
-    display: flex;
-
-    a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    transition: color 0.2s;
-    font-weight: 500;
-
-    &:hover, &:focus {
-        color: var(--primary);
-        outline: none;
-    }
-    }
-}
-
-/* Botones del Header */
-header div a {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: #334155;
-    color: var(--text-primary);
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-decoration: none;
-  /* TODO */
-}
 
 button {
     padding: 0.75rem 1.5rem;
@@ -122,8 +74,8 @@ button {
     font-size: 1rem;
     white-space: nowrap;
 
-        &:hover, /* pseudo-clase que significa que el ratón está encima */
-        &:focus { /* pseudo-clase que significa que el elemento tiene el foco */
+        &:hover, 
+        &:focus { 
     background-color: var(--primary-hover);
     outline: 2px solid white;
     outline-offset: 2px;
