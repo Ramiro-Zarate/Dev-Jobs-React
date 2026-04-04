@@ -1,10 +1,12 @@
+import styles from './SearchFormSection.module.css'
+
 export function SearchFormSection(){
     return (
         <section>
         <h1>Encuentra tu próximo trabajo</h1>
         <p>Explora miles de oportunidades en el sector tecnológico.</p>
         
-        <div className="formSearch">
+        <div className={styles.formSearch}>
           <form role="search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-search">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -15,7 +17,7 @@ export function SearchFormSection(){
           </form>
         </div>
 
-        <div className="search-filters">
+        <div className={styles.searchFilters}>
           <select name="technology" id="filter-technology">
             <option value="">Tecnología</option>
             <optgroup label="Tecnologías populares">
