@@ -111,56 +111,6 @@ main > section:nth-child(1){
 
 
 
-.tarjetasResultado{
-    max-width: 62rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: .5rem;
 
-    h3{
-        font-size: 1.8rem;
-    }
-}
-
-article{
-    padding: 1rem;
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: row;
-    padding: 2rem;
-    align-items: center;
-    border-bottom: none;
-}
-
-.tarjetasResultado article{
-    border-bottom: none;
-
-    button{
-        height: 3rem;
-    }
-
-    div{
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-    }
-}
-
-.job-listing > article:first-of-type{
-        margin-top: 1rem;
-        border-radius: 1rem 1rem 0 0;
-}
-
-.job-listing > article:last-of-type{
-    border: 1px solid var(--border);
-    border-radius: 0 0 1rem 1rem;
-}
-
-.is-applied{
-    background-color: var(--text-muted);
-    pointer-events: none;
-}
 
 
