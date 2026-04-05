@@ -108,7 +108,10 @@ main > section:nth-child(1){
 }
 
 
-
+.is-applied{
+    background-color: var(--text-muted);
+    pointer-events: none;
+}
 
 
 

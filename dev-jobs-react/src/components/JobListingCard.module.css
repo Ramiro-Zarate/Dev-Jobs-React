@@ -45,7 +45,3 @@ article{
     border-radius: 0 0 1rem 1rem;
 }
 
-.is-applied{
-    background-color: var(--text-muted);
-    pointer-events: none;
-}
