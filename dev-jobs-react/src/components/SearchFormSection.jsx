@@ -13,12 +13,13 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
     const formData = new FormData(event.currentTarget) // Devuelve todos los datos del form
 
     const filters = { // Devuelve cada campo específico
+      text: formData.get(idText),
       technology: formData.get(idTechnology),
       location: formData.get(idLocation),
       experienceLevel: formData.get(idExperienceLevel)
     }
 
-    onSearch(filters)
+    console.log(filters)
   }
 
   const handleTextChange = (event) => {
@@ -33,9 +34,8 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
         <section>
         <h1>Encuentra tu próximo trabajo</h1>
         <p>Explora miles de oportunidades en el sector tecnológico.</p>
-        
+        <form onSubmit={handleSumbit} role="search">
         <div className={styles.formSearch}>
-          <form onSubmit={handleSumbit} role="search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-search">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
@@ -43,7 +43,6 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
             </svg>
             <input name={idText} type='text' placeholder="Buscar empleos, habilidades o empresas" onChange={handleTextChange}/>
             <button type='sumbit'>Buscar</button>
-          </form>
         </div>
 
         <div className={styles.searchFilters}>
@@ -80,8 +79,7 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
             <option value="lead">Lead</option>
           </select>
         </div>
-    
-
+        </form>
       </section>
     )
 }
