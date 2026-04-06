@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import styles from './SearchFormSection.module.css'
 
-export function SearchFormSection( {onSearch} ){
+export function SearchFormSection( {onSearch, onTextFilter} ){
   const idText = useId()
   const idTechnology = useId()
   const idLocation = useId()
@@ -10,17 +10,22 @@ export function SearchFormSection( {onSearch} ){
   const handleSumbit = (event) => {
     event.preventDefault()
 
-    const formData = new FormData(event.target) // Devuelve todos los datos del form
+    const formData = new FormData(event.currentTarget) // Devuelve todos los datos del form
 
     const filters = { // Devuelve cada campo específico
-      search: formData.get(idText),
       technology: formData.get(idTechnology),
       location: formData.get(idLocation),
       experienceLevel: formData.get(idExperienceLevel)
     }
 
-    console.log(filters)
+    onSearch(filters)
   }
+
+  const handleTextChange = (event) => {
+        const text = event.target.value
+        onTextFilter(text)
+  }
+  
 
 
 
@@ -36,7 +41,7 @@ export function SearchFormSection( {onSearch} ){
               <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
             </svg>
-            <input name={idText} required type='text' placeholder="Buscar empleos, habilidades o empresas" />
+            <input name={idText} type='text' placeholder="Buscar empleos, habilidades o empresas" onChange={handleTextChange}/>
             <button type='sumbit'>Buscar</button>
           </form>
         </div>
