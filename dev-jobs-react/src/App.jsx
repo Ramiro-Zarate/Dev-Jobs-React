@@ -19,6 +19,11 @@ function App() {
   const handlePageChange = (page) => {
     setCurrentPage(page)
   }
+
+  const handleSearch = () => {
+    
+  }
+
   return (
     <>
     <Header />

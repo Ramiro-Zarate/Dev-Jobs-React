@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import styles from './SearchFormSection.module.css'
 
-export function SearchFormSection(){
+export function SearchFormSection( {onSearch} ){
   const idText = useId()
   const idTechnology = useId()
   const idLocation = useId()
@@ -9,7 +9,20 @@ export function SearchFormSection(){
   
   const handleSumbit = (event) => {
     event.preventDefault()
+
+    const formData = new FormData(event.target) // Devuelve todos los datos del form
+
+    const filters = { // Devuelve cada campo específico
+      search: formData.get(idText),
+      technology: formData.get(idTechnology),
+      location: formData.get(idLocation),
+      experienceLevel: formData.get(idExperienceLevel)
+    }
+
+    console.log(filters)
   }
+
+
 
     return (
         <section>
