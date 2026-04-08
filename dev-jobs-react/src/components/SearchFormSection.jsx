@@ -7,7 +7,7 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
   const idLocation = useId()
   const idExperienceLevel = useId()
   
-  const handleSumbit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget) // Devuelve todos los datos del form
@@ -17,6 +17,8 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
       location: formData.get(idLocation),
       experienceLevel: formData.get(idExperienceLevel)
     }
+
+    onSearch(filters)
 
   }
 
@@ -32,7 +34,7 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
         <section>
         <h1>Encuentra tu próximo trabajo</h1>
         <p>Explora miles de oportunidades en el sector tecnológico.</p>
-        <form onSubmit={handleSumbit} role="search">
+        <form onChange={handleSubmit} role="search">
         <div className={styles.formSearch}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-search">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -40,11 +42,11 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
               <path d="M21 21l-6 -6" />
             </svg>
             <input name={idText} type='text' placeholder="Buscar empleos, habilidades o empresas" onChange={handleTextChange}/>
-            <button type='sumbit'>Buscar</button>
+            
         </div>
 
         <div className={styles.searchFilters}>
-          <select name={idTechnology} id="filter-technology">
+          <select name={idTechnology} id="filter-technology"> 
             <option value="">Tecnología</option>
             <optgroup label="Tecnologías populares">
               <option value="javascript">JavaScript</option>

@@ -20,8 +20,11 @@ function App() {
   })
   
   const jobFilteredByFilters = jobsData.filter(job => {
-    return(
+
+    return (
       (filters.technology === '' || job.data.technology === filters.technology)
+      /* (filters.location === '' || job.ubicacion === filters.location),
+      (filters.experienceLevel === '' || job.data.nivel === filters.experienceLevel) */
     )
   })
 
@@ -42,7 +45,7 @@ function App() {
     setFilters(filters)
     setCurrentPage(1)
   }
-
+  
   const handleTextFilter = (newTextToFilter) => {
     setTextToFilter(newTextToFilter) // Actualizo en el estado el nuevo texto que tengo que filtrar. Se vuelve a renderizar el componente
     setCurrentPage(1)
