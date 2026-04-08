@@ -23,7 +23,8 @@ form {
 form input[type="text"] {
     flex: 1;
     background: var(--input-bg);
-    border: var(--text-muted);
+    color: var(--text-primary);
+    border: var(--text-primary);
     outline: none;
     /* padding: 0.75rem 0.5rem; */
     font-size: 1rem;

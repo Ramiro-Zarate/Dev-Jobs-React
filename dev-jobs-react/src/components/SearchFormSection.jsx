@@ -13,13 +13,11 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
     const formData = new FormData(event.currentTarget) // Devuelve todos los datos del form
 
     const filters = { // Devuelve cada campo específico
-      text: formData.get(idText),
       technology: formData.get(idTechnology),
       location: formData.get(idLocation),
       experienceLevel: formData.get(idExperienceLevel)
     }
 
-    console.log(filters)
   }
 
   const handleTextChange = (event) => {

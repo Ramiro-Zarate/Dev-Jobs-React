@@ -39,7 +39,6 @@ function App() {
   }
 
   const handleSearch = (filters) => {
-    console.log(filters)
     setFilters(filters)
     setCurrentPage(1)
   }
