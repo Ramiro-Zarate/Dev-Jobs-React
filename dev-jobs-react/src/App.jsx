@@ -1,13 +1,13 @@
-import { useState } from 'react' 
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-
 import { HomePage } from './pages/Home'
 import { SearchPage } from './pages/Search'
 import { NotFondPage } from './pages/404'
 
+import { useRouter } from './hook/useRouter'
+
 function App() {
-  const currentPath = window.location.pathname
+  const {currentPath} = useRouter()
 
   let page = <NotFondPage />
 
@@ -16,6 +16,9 @@ function App() {
   } else if (currentPath === '/search') {
     page = <SearchPage />
   }
+
+  
+
   return (
     <>
     <Header />

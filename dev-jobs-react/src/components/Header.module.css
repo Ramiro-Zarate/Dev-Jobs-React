@@ -12,6 +12,10 @@
     font-weight: 700;
     color: var(--text-primary);
     }
+
+    a {
+        text-decoration: none;
+    }
 }
 
 .headerNav {
