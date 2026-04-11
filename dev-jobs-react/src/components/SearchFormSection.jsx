@@ -1,13 +1,9 @@
-import { useId } from 'react'
+import { useId, useState } from 'react'
 import styles from './SearchFormSection.module.css'
 
-export function SearchFormSection( {onSearch, onTextFilter} ){
-  const idText = useId()
-  const idTechnology = useId()
-  const idLocation = useId()
-  const idExperienceLevel = useId()
-  
-  const handleSubmit = (event) => {
+const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, onSearch, onTextFilter})=>{
+    const [searchText, setSearchText] = useState('')
+    const handleSubmit = (event) => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget) // Devuelve todos los datos del form
@@ -24,11 +20,20 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
 
   const handleTextChange = (event) => {
         const text = event.target.value
+        setSearchText(text)
         onTextFilter(text)
   }
+
+  return {searchText, handleSubmit, handleTextChange}
+}
+
+export function SearchFormSection( {onSearch, onTextFilter} ){
+  const idText = useId()
+  const idTechnology = useId()
+  const idLocation = useId()
+  const idExperienceLevel = useId()
   
-
-
+  const { handleSubmit, handleTextChange} = useSearchForm({idLocation, idTechnology, idExperienceLevel, onSearch, onTextFilter})
 
     return (
         <section>
