@@ -9,14 +9,14 @@ import jobsData from '../data.json'
 
 const RESULTS_PER_PAGE = 4
 
-export function SearchPage() {
+const useFilters = () => {
   const [textToFilter, setTextToFilter] = useState('') // Guardar los estaodos de cual es el texto que estamos filtrando
-  const [currentPage, setCurrentPage] = useState(1)
-  const [filters, setFilters] = useState({
-    technology: '',
-    location: '',
-    experienceLevel: ''
-  })
+    const [currentPage, setCurrentPage] = useState(1)
+    const [filters, setFilters] = useState({
+      technology: '',
+      location: '',
+      experienceLevel: ''
+    })
   
   const jobFilteredByFilters = jobsData.filter(job => {
 
@@ -49,6 +49,29 @@ export function SearchPage() {
     setTextToFilter(newTextToFilter) // Actualizo en el estado el nuevo texto que tengo que filtrar. Se vuelve a renderizar el componente
     setCurrentPage(1)
   } 
+
+  return {
+    jobsWithTextFilter,
+    pagedResults,
+    totalPages,
+    currentPage,
+    handlePageChange,
+    handleSearch,
+    handleTextFilter
+  }
+
+}
+
+export function SearchPage() {  
+  const {
+    jobsWithTextFilter,
+    pagedResults,
+    totalPages,
+    currentPage,
+    handlePageChange,
+    handleSearch,
+    handleTextFilter
+  } = useFilters()
 
   return (
     <>
