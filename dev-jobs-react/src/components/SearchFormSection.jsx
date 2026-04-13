@@ -1,12 +1,18 @@
 import { useId, useState } from 'react'
 import styles from './SearchFormSection.module.css'
 
-const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, onSearch, onTextFilter})=>{
+let timeoutId = null
+
+const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onSearch, onTextFilter})=>{
     const [searchText, setSearchText] = useState('')
     const handleSubmit = (event) => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget) // Devuelve todos los datos del form
+
+    if (event.target.name === idText) {
+      return
+    } 
 
     const filters = { // Devuelve cada campo específico
       technology: formData.get(idTechnology),
@@ -21,7 +27,15 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, onSearch, o
   const handleTextChange = (event) => {
         const text = event.target.value
         setSearchText(text)
-        onTextFilter(text)
+
+        if (timeoutId) {
+          clearTimeout(timeoutId)
+        }
+
+        timeoutId = setTimeout(()=>{
+          onTextFilter(text)
+        }, 500)
+        
   }
 
   return {searchText, handleSubmit, handleTextChange}
@@ -33,7 +47,7 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
   const idLocation = useId()
   const idExperienceLevel = useId()
   
-  const { handleSubmit, handleTextChange} = useSearchForm({idLocation, idTechnology, idExperienceLevel, onSearch, onTextFilter})
+  const { handleSubmit, handleTextChange} = useSearchForm({idLocation, idTechnology, idExperienceLevel, idText, onSearch, onTextFilter})
 
     return (
         <section>

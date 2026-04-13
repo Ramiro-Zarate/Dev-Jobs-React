@@ -95,7 +95,9 @@ export function SearchPage() {
     handleTextFilter
   } = useFilters()
 
-  const title = `Resultados: ${total}, Página: ${currentPage} - DevJobs`
+  const title = loading
+   ? 'Cargando...' 
+   : `Resultados: ${total}, Página: ${currentPage} - DevJobs`
 
   return (
     <>
