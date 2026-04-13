@@ -26,7 +26,16 @@ const useFilters = () => {
     async function fetchJobs() {
       try {
         setLoading(true)
-        const response = await fetch('https://jscamp-api.vercel.app/api/jobs')
+
+        const params = new URLSearchParams()
+        if (textToFilter) params.append('text', textToFilter)
+        if (filters.technology) params.append('technology', filters.technology)
+        if (filters.location) params.append('location', filters.location)
+        if (filters.experienceLevel) params.append('level', filters.experienceLevel)
+
+        const queryParams = params.toString()
+
+        const response = await fetch(`https://jscamp-api.vercel.app/api/jobs?${queryParams}`)
         const json = await response.json()
 
         setJobs(json.data)
@@ -39,7 +48,7 @@ const useFilters = () => {
     }
 
     fetchJobs()
-  }, [])
+  }, [filters, textToFilter, currentPage])
 
   const totalPages = Math.ceil(jobs.length / RESULTS_PER_PAGE)
   
