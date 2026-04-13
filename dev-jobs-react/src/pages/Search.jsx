@@ -95,9 +95,12 @@ export function SearchPage() {
     handleTextFilter
   } = useFilters()
 
+  const title = `Resultados: ${total}, Página: ${currentPage} - DevJobs`
+
   return (
     <>
     <main>
+      <title>{title}</title>
       <SearchFormSection onSearch={handleSearch} onTextFilter={handleTextFilter} />
 
       <JobListingCard jobs={jobs} />

@@ -19,6 +19,7 @@ export function HomePage () {
 
     return (
         <main>
+        <title>Dev Jobs - Empleos</title>
         <section className={styles.heroSection}>
             <img src={backgroundImage} alt="" className={styles.bgImage}/>
             <h1>Encuentra el trabajo de tus sueños</h1>
