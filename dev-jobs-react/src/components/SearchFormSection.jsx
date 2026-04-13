@@ -1,9 +1,10 @@
-import { useId, useState } from 'react'
+import { useId, useRef, useState } from 'react'
 import styles from './SearchFormSection.module.css'
 
-let timeoutId = null
 
 const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onSearch, onTextFilter})=>{
+    const timeoutId = useRef(null)
+  
     const [searchText, setSearchText] = useState('')
     const handleSubmit = (event) => {
     event.preventDefault()
@@ -28,11 +29,11 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
         const text = event.target.value
         setSearchText(text)
 
-        if (timeoutId) {
-          clearTimeout(timeoutId)
+        if (timeoutId.current) {
+          clearTimeout(timeoutId.current)
         }
 
-        timeoutId = setTimeout(()=>{
+        timeoutId.current = setTimeout(()=>{
           onTextFilter(text)
         }, 500)
         
