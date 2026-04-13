@@ -42,7 +42,7 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
   return {searchText, handleSubmit, handleTextChange}
 }
 
-export function SearchFormSection( {onSearch, onTextFilter} ){
+export function SearchFormSection( {onSearch, onTextFilter, initialText} ){
   const idText = useId()
   const idTechnology = useId()
   const idLocation = useId()
@@ -61,7 +61,13 @@ export function SearchFormSection( {onSearch, onTextFilter} ){
               <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
             </svg>
-            <input name={idText} type='text' placeholder="Buscar empleos, habilidades o empresas" onChange={handleTextChange}/>
+            <input 
+              name={idText}
+              type='text' 
+              placeholder="Buscar empleos, habilidades o empresas" 
+              onChange={handleTextChange}
+              defaultValue={initialText}
+            />
             
         </div>
 
