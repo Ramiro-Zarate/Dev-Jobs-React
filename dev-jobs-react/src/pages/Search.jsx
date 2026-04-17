@@ -5,7 +5,6 @@ import { SearchFormSection } from '../components/SearchFormSection'
 import { JobCard } from '../components/JobCad'
 import { JobListingCard } from '../components/JobListingCard'
 
-import jobsData from '../data.json'
 import { useRouter } from '../hook/useRouter'
 
 const RESULTS_PER_PAGE = 4
