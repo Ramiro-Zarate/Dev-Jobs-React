@@ -3,16 +3,18 @@ import { Link } from 'react-router'
 import snarkdown from 'snarkdown'
 
 export function JobDetailCard({job}) {
-    function JobSection({title, content}) {
+    function  JobSection ({title, content}) {
     const html = snarkdown(content)
         return (
-            <section>
+            <section className={styles.jobSection}>
                 <h2>
                     {title}
                 </h2>
                 <div
                  dangerouslySetInnerHTML=
-                 {{__html: html}}>
+                 {{__html: html}}
+                 className={styles.contentSection}
+                 >
                 </div>
             </section>
         )
@@ -20,34 +22,35 @@ export function JobDetailCard({job}) {
 
     return (
         <section className={styles.mainContainer}>
-            <div className={styles.container}>
-                <nav>
-                    <Link
-                    to='/search'>
+            <nav className={styles.navEmpleos}>
+                <Link
+                    to='/search'
+                    className={styles.linkEmpleo}>
                     Empleos
-                    </Link>
-                    <span>/</span>
-                    <span>{job.titulo}</span>
-                </nav>
+                </Link>
+                <span>/</span>
+                <span>{job.titulo}</span>
+            </nav>    
+            <div className={styles.container}>
+                <header className={styles.headerJobs}>
+                    <div className={styles.titleSection}>
+                        <h1>
+                            {job.titulo}
+                        </h1>
+                        <p>
+                            {job.empresa} - {job.ubicacion}
+                        </p>
+                    </div>
+                    <button>
+                        Aplicar Ahora
+                    </button>
+                </header>
+                <JobSection title='Descripción del puesto' content={job.content.description}/>
+                <JobSection title='Reponsabilidades' content={job.content.responsibilities} />
+                <JobSection title='Requisitos' content={job.content.requirements} />
+                <JobSection title='Acerca de la empresa' content={job.content.about} />
             </div>
-
-            <header>
-                <h1>
-                    {job.titulo}
-                </h1>
-                <p>
-                    {job.empresa} - {job.ubicacion}
-                </p>
-            </header>
-
-            <button>
-                Aplicar Ahora
-            </button>
-
-            <JobSection title='Descripción del puesto' content={job.content.description}/>
-            <JobSection title='Reponsabilidades' content={job.content.responsibilities} />
-            <JobSection title='Requisitos' content={job.content.requirements} />
-            <JobSection title='Acerca de la empresa' content={job.content.about} />
+            
         </section>
     )    
 }

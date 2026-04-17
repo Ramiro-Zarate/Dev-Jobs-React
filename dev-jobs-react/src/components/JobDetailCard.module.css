@@ -1,10 +1,65 @@
 .mainContainer{
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 3rem auto;
     padding: 0 1rem;
-    
+}
+
+.navEmpleos{
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    margin-block: 1rem;
+}
+
+.linkEmpleo{
+    text-decoration: none;
+    color: var(--text-muted);
 }
 
 .container{
-    background-color: var(--primary-dark);
+    background-color: rgb(17 24 37);
+    border: .1rem solid var(--shadow);
+    padding: 3rem;
+}
+
+.headerJobs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: .2rem;
+    width: 100%;
+
+    h1{
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    p{
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--text-muted);
+    }
+
+    button{
+        height: 3rem;
+    }
+}
+
+.jobSection{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    margin-top: 1.4rem;
+}
+
+.contentSection{
+    justify-content: center;
+    ul{
+        list-style-position: inside;
+    }
+    li{
+        margin-block: .2rem;
+    }
 }

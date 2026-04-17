@@ -53,7 +53,6 @@ export function JobDetail () {
     return(
         <>
             <JobDetailCard job={job}/>
-            {/* <h1>EL job id es {jobId}</h1> */}
         </>
     )
 }
