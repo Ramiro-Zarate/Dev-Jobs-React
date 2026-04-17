@@ -2,7 +2,7 @@ import styles from './Home.module.css'
 import  backgroundImage from '../assets/background.webp'
 import { useRouter } from '../hook/useRouter'
 
-export function HomePage () {
+export default function HomePage () {
     const {navigateTo} = useRouter()
 
     const handleSearch = (event)=>{

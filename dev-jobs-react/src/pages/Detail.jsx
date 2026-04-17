@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router"
 import { JobDetailCard } from "../components/JobDetailCard"
 
-export function JobDetail () {
+export default function JobDetail () {
     const {jobId} = useParams()
     const navigate = useNavigate()
 

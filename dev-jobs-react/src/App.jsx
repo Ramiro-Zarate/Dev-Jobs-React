@@ -1,22 +1,26 @@
 import { Routes, Route } from 'react-router'
+import { lazy, Suspense } from 'react'
 
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { HomePage } from './pages/Home'
-import { SearchPage } from './pages/Search'
-import { NotFoundPage } from './pages/404.jsx'
-import { JobDetail} from './pages/Detail.jsx'
+
+const HomePage = lazy(() => import('./pages/Home.jsx'))
+const SearchPage = lazy(() => import('./pages/Search.jsx'))
+const NotFoundPage = lazy(() => import('./pages/404.jsx'))
+const JobDetail = lazy(() => import('./pages/Detail.jsx'))
 
 function App() {
   return (
     <>
     <Header />
-    <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/search' element={<SearchPage />} />
-      <Route path='/search/:jobId' element={<JobDetail/>}/>
-      <Route path='*' element={<NotFoundPage />}/>
-    </Routes>
+    <Suspense fallback={<div>Cargando...</div>}> {/* Añadir fallback mas estetico */}
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/search' element={<SearchPage />} />
+        <Route path='/search/:jobId' element={<JobDetail/>}/>
+        <Route path='*' element={<NotFoundPage />}/>
+      </Routes>
+    </Suspense>
     <Footer />
   </>
 )
