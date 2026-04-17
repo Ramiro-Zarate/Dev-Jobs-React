@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router"
+import { JobDetailCard } from "../components/JobDetailCard"
 
-export function Detail () {
+export function JobDetail () {
     const {jobId} = useParams()
     const navigate = useNavigate()
 
@@ -51,7 +52,8 @@ export function Detail () {
 
     return(
         <>
-            <h1>EL job id es {jobId}</h1>
+            <JobDetailCard job={job}/>
+            {/* <h1>EL job id es {jobId}</h1> */}
         </>
     )
 }
