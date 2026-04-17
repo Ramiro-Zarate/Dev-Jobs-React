@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Link } from "react-router"
+import styles from './JobCard.module.css'
 
 export function JobCard({job}){
     const [isApplied, setIsApplied] = useState(false)
@@ -18,11 +20,18 @@ export function JobCard({job}){
             data-technology={job.data.technology}
         >
             <div>
+                <Link to={`/search/${job.id}`} className={styles.jobLink}>
                 <h3>{job.titulo}</h3>
+                </Link>
+                
                 <small>{job.empresa} | {job.ubicacion}</small>
                 <p>{job.descripcion}</p>
             </div>
-            <button className={buttonClasses} onClick={hanldeApplyClick}>{buttonText}</button>
+            <div className={styles.applyButtonSection}>
+                <Link to={`/search/${job.id}`} className={styles.detailLink}>Ver detalles</Link>
+                <button className={buttonClasses} onClick={hanldeApplyClick}>{buttonText}</button>
+            </div>
+            
             
         </article>
     )
