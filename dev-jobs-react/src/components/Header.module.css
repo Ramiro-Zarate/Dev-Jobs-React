@@ -51,3 +51,9 @@
     font-weight: 700;
     text-decoration: none;
 }
+
+.navLinkActive{
+    pointer-events: none;
+    opacity: .5;
+    user-select: none;
+}

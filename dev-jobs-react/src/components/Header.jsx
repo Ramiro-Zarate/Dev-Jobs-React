@@ -1,10 +1,11 @@
 import styles from './Header.module.css'
 import { Link } from './Link'
+import { NavLink } from 'react-router'
 
 export function Header(){
   return(
   <header className={styles.header}>
-    <Link href="./">
+    <Link to="./">
       <h1>
         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -15,10 +16,10 @@ export function Header(){
       </h1>
     </Link>
     <nav className={styles.headerNav}>
-        <a href="">Buscar</a>
-        <a href="../search">Empleos</a>
-        <a href="">Empresas</a>
-        <a href="">Salarios</a>
+        <NavLink to="">Buscar</NavLink>
+        <NavLink className={({isActive})=> isActive ? 'navLinkActive' : ''} to="../search">Empleos</NavLink>
+        <NavLink to="">Empresas</NavLink>
+        <NavLink to="">Salarios</NavLink>
     </nav>
     <div className={styles.buttonSection}>
         <button className={styles.headerButton}>Publicar un empleo</button>
