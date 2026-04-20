@@ -139,6 +139,7 @@ button {
 .card {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--card-bg);
     padding: 2rem;
     margin-bottom: 16px;

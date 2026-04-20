@@ -1,6 +1,7 @@
 import styles from './JobDetailCard.module.css'
 import { Link } from 'react-router'
 import snarkdown from 'snarkdown'
+import { useAuthStore } from "../store/authStore"
 
 export function JobDetailCard({job}) {
     function  JobSection ({title, content}) {
@@ -41,9 +42,7 @@ export function JobDetailCard({job}) {
                             {job.empresa} - {job.ubicacion}
                         </p>
                     </div>
-                    <button>
-                        Aplicar Ahora
-                    </button>
+                    <DetailApplyButton />
                 </header>
                 <JobSection title='Descripción del puesto' content={job.content.description}/>
                 <JobSection title='Reponsabilidades' content={job.content.responsibilities} />
@@ -53,4 +52,14 @@ export function JobDetailCard({job}) {
             
         </section>
     )    
+}
+
+function DetailApplyButton(){
+    const {isLoggedIn} = useAuthStore()
+    
+    return (
+        <button disabled={!isLoggedIn}>
+            {isLoggedIn ? 'Aplicar Ahora' : 'Inicia sesión para aplicar'}
+        </button>
+    )
 }

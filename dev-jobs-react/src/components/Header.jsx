@@ -1,6 +1,7 @@
 import styles from './Header.module.css'
 import { Link } from './Link'
 import { NavLink } from 'react-router'
+import { useAuthStore } from "../store/authStore";
 
 export function Header(){
   return(
@@ -23,8 +24,16 @@ export function Header(){
     </nav>
     <div className={styles.buttonSection}>
         <button className={styles.headerButton}>Publicar un empleo</button>
-        <button className={styles.headerButton}>Iniciar Sesión</button>
+        <HeaderUserButton />
     </div>
   </header>
     )
+}
+
+export function HeaderUserButton(){
+    const {isLoggedIn, login, logout} = useAuthStore()
+
+    return isLoggedIn
+        ? <button className={styles.headerButton} onClick={logout}>Cerrar Sesión</button>
+        : <button className={styles.headerButton} onClick={login}>Iniciar Sesión</button>
 }

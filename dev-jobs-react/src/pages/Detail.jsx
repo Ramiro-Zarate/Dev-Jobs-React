@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router"
 import { JobDetailCard } from "../components/JobDetailCard"
 
+
 export default function JobDetail () {
     const {jobId} = useParams()
     const navigate = useNavigate()
@@ -56,3 +57,4 @@ export default function JobDetail () {
         </>
     )
 }
+
