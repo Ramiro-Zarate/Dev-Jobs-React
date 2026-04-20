@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router"
 import styles from './JobCard.module.css'
+import { useAuthStore } from "../store/authStore"
 
 export function JobCard({job}){
     const [isApplied, setIsApplied] = useState(false)
@@ -29,10 +30,21 @@ export function JobCard({job}){
             </div>
             <div className={styles.applyButtonSection}>
                 <Link to={`/search/${job.id}`} className={styles.detailLink}>Ver detalles</Link>
-                <button className={buttonClasses} onClick={hanldeApplyClick}>{buttonText}</button>
+                <DetailApplyButton />
+                {/* <button className={buttonClasses} onClick={hanldeApplyClick}>{buttonText}</button> */}
             </div>
             
             
         </article>
+    )
+}
+
+function DetailApplyButton(){
+    const {isLoggedIn} = useAuthStore()
+    
+    return (
+        <button disabled={!isLoggedIn}>
+            {isLoggedIn ? 'Aplicar' : 'Aplicar'}
+        </button>
     )
 }
