@@ -1,0 +1,87 @@
+.heroSection {
+  height: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroSection h1 {
+    padding-top: 36px; 
+}
+
+.bgImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 80%);
+}
+
+/* Formulario de Búsqueda */
+form {
+  max-width: 42rem;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+  background-color: var(--input-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px var(--shadow);
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+form input[type="text"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 40rem;
+}
+
+form input[type="text"]::placeholder {
+  color: #64748b;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  font-size: 1rem;
+  white-space: nowrap;
+
+  &:hover, /* pseudo-clase que significa que el ratón está encima */
+  &:focus { /* pseudo-clase que significa que el elemento tiene el foco */
+    background-color: var(--primary-hover);
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  &:active { 
+    transform: scale(0.90)
+  }
+
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
