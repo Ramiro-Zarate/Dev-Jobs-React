@@ -13,12 +13,14 @@ export function JobCard({job}){
     const buttonClasses = isApplied ? 'button-applied-job is-applied' : 'button-applied-job'
     const buttonText = isApplied ? 'Aplicado' : 'Aplicar'
 
+    if (!job) return null;
+
     return(
         <article
             className='job-listing-card'
-            data-modalidad={job.data.modalidad}
-            data-nivel={job.data.nivel}
-            data-technology={job.data.technology}
+            data-modalidad={job.data?.modalidad}
+            data-nivel={job.data?.nivel}
+            data-technology={job.data?.technology}
         >
             <div>
                 <Link to={`/search/${job.id}`} className={styles.jobLink}>

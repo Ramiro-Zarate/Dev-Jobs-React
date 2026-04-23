@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 import { Pagination } from '../components/Pagination'
 import { SearchFormSection } from '../components/SearchFormSection'
-import { JobCard } from '../components/JobCad'
+import { JobCard } from '../components/JobCard'
 import { JobListingCard } from '../components/JobListingCard'
 
 import { useRouter } from '../hook/useRouter'
@@ -47,7 +47,7 @@ const useFilters = () => {
 
         const queryParams = params.toString()
 
-        const response = await fetch(`https://jscamp-api.vercel.app/api/jobs?${queryParams}`)
+        const response = await fetch(`http://localhost:1234/jobs?${queryParams}`)
         const json = await response.json()
 
         setJobs(json.data)
@@ -58,7 +58,6 @@ const useFilters = () => {
         setLoading(false)
       }
     }
-
     fetchJobs()
   }, [filters, textToFilter, currentPage])
 
