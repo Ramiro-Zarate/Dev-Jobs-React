@@ -11,6 +11,7 @@ const RESULTS_PER_PAGE = 4
 
 const useFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams()
+
   const [filters, setFilters] = useState(()=>{
     return {
       technology: searchParams.get('technology') || '',
@@ -18,7 +19,9 @@ const useFilters = () => {
       experienceLevel: searchParams.get('level') || ''
     }
   })
+
   const [textToFilter, setTextToFilter] = useState(()=>searchParams.get('text') || '') // Guardar los estaodos de cual es el texto que estamos filtrando
+
   const [currentPage, setCurrentPage] = useState(()=>{
     const page = Number(searchParams.get('page'))
     return Number.isNaN(page) ? page : 1
@@ -50,8 +53,10 @@ const useFilters = () => {
         const response = await fetch(`http://localhost:1234/jobs?${queryParams}`)
         const json = await response.json()
 
-        setJobs(json.data)
-        setTotal(json.total)
+        console.log('Respuesta de la API:', json)
+
+        setJobs(json)
+        setTotal(json.length)
       } catch (error) {
         console.error('Error fetching jobs: ', error)
       } finally {
@@ -93,6 +98,7 @@ const useFilters = () => {
 
   return {
     loading,
+    filters,
     jobs,
     total,
     totalPages,
@@ -107,6 +113,7 @@ const useFilters = () => {
 
 export default function SearchPage() {  
   const {
+    filters,
     loading,
     jobs,
     total,
