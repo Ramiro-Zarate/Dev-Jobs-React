@@ -55,8 +55,8 @@ const useFilters = () => {
 
         console.log('Respuesta de la API:', json)
 
-        setJobs(json)
-        setTotal(json.length)
+        setJobs(json.data)
+        setTotal(json.total)
       } catch (error) {
         console.error('Error fetching jobs: ', error)
       } finally {
