@@ -43,10 +43,18 @@ export function JobCard({job}){
 
 function DetailApplyButton(){
     const {isLoggedIn} = useAuthStore()
+    const [isApplied, setIsApplied] = useState(false)
+
+    const buttonClasses = isApplied ? `${styles.isApplied}` : ''
+    const buttonText = isApplied ? 'Aplicado' : 'Aplicar'
+
+    const handleApply = ()=>{
+        setIsApplied(!isApplied)
+    }
     
     return (
-        <button disabled={!isLoggedIn}>
-            {isLoggedIn ? 'Aplicar' : 'Aplicar'}
+        <button disabled={!isLoggedIn} className={buttonClasses} onClick={handleApply}>
+            {buttonText}
         </button>
     )
 }

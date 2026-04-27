@@ -21,3 +21,8 @@
         text-decoration: underline;
     }
 }
+
+.isApplied{
+    background-color: green;
+    opacity: .5;
+}
