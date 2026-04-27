@@ -2,10 +2,10 @@ import { useId, useRef, useState } from 'react'
 import styles from './SearchFormSection.module.css'
 
 
-const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onSearch, onTextFilter})=>{
+const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onSearch, onTextFilter, initialFilters})=>{
     const timeoutId = useRef(null)
-  
-    const [searchText, setSearchText] = useState('')
+    const [searchText, setSearchText] = useState("")
+
     const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -20,7 +20,7 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
       location: formData.get(idLocation),
       experienceLevel: formData.get(idExperienceLevel)
     }
-
+    console.log("Filtros capturados en el Form:", filters)
     onSearch(filters)
 
   }
@@ -42,7 +42,7 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
   return {searchText, handleSubmit, handleTextChange}
 }
 
-export function SearchFormSection( {onSearch, onTextFilter, initialText} ){
+export function SearchFormSection( {onSearch, onTextFilter, initialText, initialFilters} ){
   const idText = useId()
   const idTechnology = useId()
   const idLocation = useId()
@@ -72,7 +72,7 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText} ){
         </div>
 
         <div className={styles.searchFilters}>
-          <select name={idTechnology} id="filter-technology"> 
+          <select name={idTechnology} id="filter-technology" defaultValue={initialFilters.technology}> 
             <option value="">Tecnología</option>
             <optgroup label="Tecnologías populares">
               <option value="javascript">JavaScript</option>
@@ -88,16 +88,16 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText} ){
             <option value="php">PHP</option>
           </select>
 
-          <select name={idLocation} id="filter-location">
+          <select name={idLocation} id="filter-location" defaultValue={initialFilters.location}> 
             <option value="">Ubicación</option>
             <option value="remoto">Remoto</option>
-            <option value="cdmx">Ciudad de México</option>
+            <option value="ciudad de mexico">Ciudad de México</option>
             <option value="guadalajara">Guadalajara</option>
             <option value="monterrey">Monterrey</option>
             <option value="barcelona">Barcelona</option>
           </select>
 
-          <select name={idExperienceLevel} id="filter-experience-level">
+          <select name={idExperienceLevel} id="filter-experience-level" defaultValue={initialFilters.experienceLevel}>
             <option value="">Nivel de experiencia</option>
             <option value="junior">Junior</option>
             <option value="mid">Mid-level</option>

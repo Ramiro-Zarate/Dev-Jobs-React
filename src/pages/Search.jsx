@@ -53,7 +53,7 @@ const useFilters = () => {
         const response = await fetch(`http://localhost:1234/jobs?${queryParams}`)
         const json = await response.json()
 
-        console.log('Respuesta de la API:', json)
+        
 
         setJobs(json.data)
         setTotal(json.total)
@@ -135,6 +135,7 @@ export default function SearchPage() {
       <title>{title}</title>
       <SearchFormSection 
         initialText={textToFilter}
+        initialFilters={filters}
         onSearch={handleSearch}
         onTextFilter={handleTextFilter} />
 
