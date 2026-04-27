@@ -20,7 +20,7 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
       location: formData.get(idLocation),
       experienceLevel: formData.get(idExperienceLevel)
     }
-    console.log("Filtros capturados en el Form:", filters)
+    
     onSearch(filters)
 
   }
@@ -39,6 +39,9 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
         
   }
 
+  
+  
+  
   return {searchText, handleSubmit, handleTextChange}
 }
 
@@ -47,8 +50,16 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText, initial
   const idTechnology = useId()
   const idLocation = useId()
   const idExperienceLevel = useId()
+
+  const inputRef = useRef()
   
-  const { handleSubmit, handleTextChange} = useSearchForm({idLocation, idTechnology, idExperienceLevel, idText, onSearch, onTextFilter})
+  const { handleSubmit, handleTextChange} = useSearchForm({idLocation, idTechnology, idExperienceLevel, idText, onSearch, onTextFilter, initialFilters})
+
+  const handleClear = (event) => {
+    event.preventDefault()
+    inputRef.current.value = ""
+    onTextFilter("")
+  }
 
     return (
         <section>
@@ -61,13 +72,16 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText, initial
               <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
             </svg>
-            <input 
+            <input
+              ref={inputRef} 
               name={idText}
               type='text' 
               placeholder="Buscar empleos, habilidades o empresas" 
               onChange={handleTextChange}
               defaultValue={initialText}
             />
+
+            <button onClick={handleClear} className={styles.clearButton}>x</button>
             
         </div>
 
@@ -91,7 +105,7 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText, initial
           <select name={idLocation} id="filter-location" defaultValue={initialFilters.location}> 
             <option value="">Ubicación</option>
             <option value="remoto">Remoto</option>
-            <option value="ciudad de mexico">Ciudad de México</option>
+            <option value="cdmx">Ciudad de México</option>
             <option value="guadalajara">Guadalajara</option>
             <option value="monterrey">Monterrey</option>
             <option value="barcelona">Barcelona</option>

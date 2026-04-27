@@ -122,7 +122,7 @@ export default function SearchPage() {
     textToFilter,
     handlePageChange,
     handleSearch,
-    handleTextFilter
+    handleTextFilter,
   } = useFilters()
 
   const title = loading
