@@ -24,5 +24,11 @@
 
 .isApplied{
     background-color: green;
+    border: none;
     opacity: .5;
+
+    &:hover{
+        border: none;
+        text-decoration: none;
+    }
 }
