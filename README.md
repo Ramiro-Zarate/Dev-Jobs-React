@@ -1,18 +1,70 @@
-# React + Vite
+# DevJobs React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Job board para desarrolladores latinomericanos. Buscá empleos por tecnología, ubicación y nivel de experiencia.
 
-Currently, two official plugins are available:
+## Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![DevJobs React](./public/screenshot.png)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+![React](https://img.shields.io/badge/React-19.2.4-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-8.0.1-646CFF?logo=vite)
+![React Router](https://img.shields.io/badge/React%20Router-7.14.1-CA4245?logo=react-router)
+![Zustand](https://img.shields.io/badge/Zustand-5.0.12-2C3E50?logo=zustand)
+![snarkdown](https://img.shields.io/badge/snarkdown-2.0.0-FF6B6B)
 
-Note: This will impact Vite dev & build performances.
+- **React** 19.2.4 con React Compiler
+- **Vite** 8.0.1
+- **React Router** 7.14.1
+- **Zustand** 5.0.12
+- **snarkdown** 2.0.0
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Buscador con filtros por tecnología, ubicación y nivel de experiencia
+- Búsqueda con debounce de 500ms
+- Paginación de resultados
+- Detalle completo de cada empleo con rendering de Markdown
+- Diseño responsive
+- Navegación fluida con React Router
+
+## API
+
+Este proyecto consume la **DevJobs API** (https://dev-jobs-api-sepia.vercel.app/jobs) creada por [Ramiro Zarate](https://github.com/Ramiro-Zarate).
+
+Endpoints disponibles:
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/jobs` | Listado de empleos con filtros |
+| GET | `/jobs/{jobId}` | Detalle de un empleo específico |
+
+Parámetros de búsqueda:
+
+- `text` - Búsqueda por texto
+- `technology` - Filtrar por tecnología
+- `location` - Filtrar por ubicación
+- `level` - Filtrar por nivel de experiencia
+- `limit` - Resultados por página
+- `offset` - Offset para paginación
+
+## Instalación
+
+```bash
+npm install
+npm run dev
+```
+
+## Scripts
+
+| Script | Descripción |
+|--------|-------------|
+| `npm run dev` | Iniciar servidor de desarrollo |
+| `npm run build` | Construir versión de producción |
+| `npm run lint` | Verificar código con ESLint |
+| `npm run preview` | Previsualizar versión de producción |
+
+---
+
+Desarrollado por **Ramiro Zarate**
