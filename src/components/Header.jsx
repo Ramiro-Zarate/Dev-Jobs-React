@@ -23,7 +23,9 @@ export function Header(){
         <NavLink to="">Salarios</NavLink>
     </nav>
     <div className={styles.buttonSection}>
-        <button className={styles.headerButton}>Publicar un empleo</button>
+        <NavLink to="/publish" className={styles.headerButton}>
+          Publicar un empleo
+        </NavLink>
         <HeaderUserButton />
     </div>
   </header>

@@ -20,7 +20,7 @@ main > section:nth-child(1){
 }
 
 
-form {
+.form {
     max-width: 62rem;
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@ form {
     gap: 0.5rem;
 }
 
-form input[type="text"] {
+.form input[type="text"] {
     flex: 1;
     background: var(--input-bg);
     color: var(--text-primary);

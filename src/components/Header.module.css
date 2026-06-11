@@ -50,6 +50,14 @@
     font-size: 0.875rem;
     font-weight: 700;
     text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover, &:focus {
+        color: var(--primary);
+        background-color: var(--primary-hover);
+        outline: none;
+    }
+    
 }
 
 .navLinkActive{

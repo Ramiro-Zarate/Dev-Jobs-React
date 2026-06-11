@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('./pages/Home.jsx'))
 const SearchPage = lazy(() => import('./pages/Search.jsx'))
 const NotFoundPage = lazy(() => import('./pages/404.jsx'))
 const JobDetail = lazy(() => import('./pages/Detail.jsx'))
+const PublishPage = lazy(() => import('./pages/Publish.jsx'))
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/search/:jobId' element={<JobDetail/>}/>
+        <Route path='/publish' element={<PublishPage />} />
         <Route path='*' element={<NotFoundPage />}/>
       </Routes>
     </Suspense>

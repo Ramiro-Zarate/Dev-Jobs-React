@@ -60,7 +60,7 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText, initial
         <section>
         <h1>Encuentra tu próximo trabajo</h1>
         <p>Explora miles de oportunidades en el sector tecnológico.</p>
-        <form onChange={handleSubmit} role="search">
+        <form onChange={handleSubmit} role="search" className={styles.form}>
         <div className={styles.formSearch}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-search">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
