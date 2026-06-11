@@ -22,6 +22,12 @@ const useFilters = () => {
 
   const [textToFilter, setTextToFilter] = useState(()=>searchParams.get('text') || '') // Guardar los estaodos de cual es el texto que estamos filtrando
 
+  const handleClearFilters = () => {
+    setFilters({technology: '', location: '', experienceLevel: ''}),
+    setTextToFilter('')
+    setCurrentPage(1)
+  }
+
   const [currentPage, setCurrentPage] = useState(()=>{
     const page = Number(searchParams.get('page'))
     return Number.isNaN(page) ? page : 1
@@ -106,7 +112,8 @@ const useFilters = () => {
     textToFilter,
     handlePageChange,
     handleSearch,
-    handleTextFilter
+    handleTextFilter,
+    handleClearFilters
   }
 
 }
@@ -123,6 +130,7 @@ export default function SearchPage() {
     handlePageChange,
     handleSearch,
     handleTextFilter,
+    handleClearFilters
   } = useFilters()
 
   const title = loading
@@ -137,8 +145,10 @@ export default function SearchPage() {
         initialText={textToFilter}
         initialFilters={filters}
         onSearch={handleSearch}
-        onTextFilter={handleTextFilter} />
-
+        onTextFilter={handleTextFilter} 
+        onClearFilters={handleClearFilters}
+        />
+        
       <JobListingCard jobs={jobs} />
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
     </main>

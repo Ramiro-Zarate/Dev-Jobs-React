@@ -2,7 +2,7 @@ import { useId, useRef, useState } from 'react'
 import styles from './SearchFormSection.module.css'
 
 
-const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onSearch, onTextFilter, initialFilters})=>{
+const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onSearch, onTextFilter, initialFilters, onClearFilters})=>{
     const timeoutId = useRef(null)
     const [searchText, setSearchText] = useState("")
 
@@ -45,7 +45,7 @@ const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, idText, onS
   return {searchText, handleSubmit, handleTextChange}
 }
 
-export function SearchFormSection( {onSearch, onTextFilter, initialText, initialFilters} ){
+export function SearchFormSection( {onSearch, onTextFilter, initialText, initialFilters, onClearFilters} ){
   const idText = useId()
   const idTechnology = useId()
   const idLocation = useId()
@@ -55,11 +55,6 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText, initial
   
   const { handleSubmit, handleTextChange} = useSearchForm({idLocation, idTechnology, idExperienceLevel, idText, onSearch, onTextFilter, initialFilters})
 
-  const handleClear = (event) => {
-    event.preventDefault()
-    inputRef.current.value = ""
-    onTextFilter("")
-  }
 
     return (
         <section>
@@ -81,7 +76,7 @@ export function SearchFormSection( {onSearch, onTextFilter, initialText, initial
               defaultValue={initialText}
             />
 
-            <button onClick={handleClear} className={styles.clearButton}>x</button>
+            <button onClick={onClearFilters} className={styles.clearButton}>x</button>
             
         </div>
 
