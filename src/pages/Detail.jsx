@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router"
 import { JobDetailCard } from "../components/JobDetailCard"
+import { fetchJobById, deleteJob } from "../api/jobs"
 
 
 export default function JobDetail () {
@@ -8,53 +9,63 @@ export default function JobDetail () {
     const navigate = useNavigate()
 
     const [job, setJob] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(()=>{
-        fetch(`https://jscamp-api.vercel.app/api/jobs/${jobId}`)
-        .then(response =>{
-            if (!response.ok) throw new Error('Job Not Found')
-            return response.json()
-        })
-        .then(json=>{
-            setJob(json)
-        })
-        .catch(err=>{
-            setError(err.message)
-        })
-        .finally(()=>{
-            setLoading(false)
-        })
+        let cancelled = false
+
+        fetchJobById(jobId)
+            .then(data => {
+                if (cancelled) return
+                setJob(data)
+            })
+            .catch(err => {
+                if (cancelled) return
+                setError(err.message)
+            })
+            .finally(()=>{
+                if (!cancelled) setLoading(false)
+            })
+
+        return () => { cancelled = true }
     }, [jobId])
+
+    const handleDelete = () => {
+        deleteJob(jobId)
+        navigate('/search')
+    }
 
     if (loading) {
         return (
-            <div>
-                <h1>Cargando</h1> {/* Insertar estilos */}
-            </div>
+            <main>
+                <title>Cargando - DevJobs</title>
+                <p style={{ padding: '2rem', textAlign: 'center' }}>Cargando empleo...</p>
+            </main>
         )
     }
 
     if (error || !job) {
         return(
-            <div>
-                <h1>
-                    Oferta no enctontrada
-                </h1>
-                <button 
-                    onClick={()=>navigate('/')} 
-                >
-                    Volver al Inicio {/* Insertar estilos */}
-                </button>
-            </div>
+            <main>
+                <title>No encontrado - DevJobs</title>
+                <section style={{ padding: '2rem', textAlign: 'center' }}>
+                    <h1>Oferta no encontrada</h1>
+                    <p>{error || 'El empleo que buscás no existe.'}</p>
+                    <button
+                        onClick={()=>navigate('/')}
+                    >
+                        Volver al Inicio
+                    </button>
+                </section>
+            </main>
         )
     }
 
     return(
-        <>
-            <JobDetailCard job={job}/>
-        </>
+        <main>
+            <title>{job.titulo} - DevJobs</title>
+            <JobDetailCard job={job} onDelete={handleDelete}/>
+        </main>
     )
 }
-

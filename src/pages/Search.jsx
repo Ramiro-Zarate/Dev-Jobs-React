@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 import { Pagination } from '../components/Pagination'
 import { SearchFormSection } from '../components/SearchFormSection'
-import { JobCard } from '../components/JobCard'
 import { JobListingCard } from '../components/JobListingCard'
+import { LocalJobsSection } from '../components/LocalJobsSection'
 
 import { useRouter } from '../hook/useRouter'
 
@@ -141,14 +141,16 @@ export default function SearchPage() {
     <>
     <main>
       <title>{title}</title>
-      <SearchFormSection 
+      <SearchFormSection
         initialText={textToFilter}
         initialFilters={filters}
         onSearch={handleSearch}
-        onTextFilter={handleTextFilter} 
+        onTextFilter={handleTextFilter}
         onClearFilters={handleClearFilters}
         />
-        
+
+      <LocalJobsSection />
+
       <JobListingCard jobs={jobs} />
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
     </main>

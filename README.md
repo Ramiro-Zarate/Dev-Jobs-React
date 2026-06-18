@@ -33,7 +33,7 @@ Job board para desarrolladores latinomericanos. Buscá empleos por tecnología, 
 
 Este proyecto consume la **DevJobs API** (https://dev-jobs-api-sepia.vercel.app/jobs) creada por [Ramiro Zarate](https://github.com/Ramiro-Zarate).
 
-Endpoints disponibles:
+### Endpoints remotos (lectura)
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -48,6 +48,18 @@ Parámetros de búsqueda:
 - `level` - Filtrar por nivel de experiencia
 - `limit` - Resultados por página
 - `offset` - Offset para paginación
+
+### Persistencia local (escritura)
+
+El CRUD de escritura (crear, editar, eliminar) se persiste en `localStorage` del navegador con la clave `devjobs:local-jobs`. Decisión de diseño: la API remota no tiene auth, por lo que las mutaciones quedan del lado del cliente para que el demo del portfolio muestre un CRUD funcional sin comprometer datos reales.
+
+| Operación | Destino |
+|-----------|---------|
+| Crear empleo | `localStorage` |
+| Editar empleo | `localStorage` (crea override local si el empleo viene de la API) |
+| Eliminar empleo | `localStorage` |
+
+Las publicaciones locales aparecen en una sección "Tus publicaciones" arriba del listado principal de búsqueda, y se priorizan sobre la API al abrir el detalle.
 
 ## Instalación
 

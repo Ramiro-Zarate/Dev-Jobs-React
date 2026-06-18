@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     margin-inline: .2rem;
     width: 100%;
 
@@ -44,6 +45,103 @@
     button{
         height: 3rem;
     }
+}
+
+.titleSection{
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.headerActions{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.editLink{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 0 1.5rem;
+    border-radius: .5rem;
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all .2s;
+
+    &:hover,
+    &:focus{
+        border-color: var(--text-primary);
+        background-color: var(--primary);
+    }
+}
+
+.deleteButton{
+    background-color: rgba(220, 38, 38, .15);
+    color: #fecaca;
+    border: 1px solid rgba(220, 38, 38, .4);
+
+    &:hover,
+    &:focus{
+        background-color: rgba(220, 38, 38, .35);
+        color: #fff;
+        outline: none;
+    }
+}
+
+.confirmDelete{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background-color: rgba(220, 38, 38, .15);
+    border: 1px solid rgba(220, 38, 38, .4);
+    padding: .35rem .5rem;
+    border-radius: .5rem;
+    height: 3rem;
+}
+
+.confirmDelete span{
+    color: #fecaca;
+    font-size: .9rem;
+    margin-inline: .25rem;
+}
+
+.confirmButton{
+    background-color: rgba(220, 38, 38, .6);
+    color: #fff;
+    height: 2.25rem;
+    padding: 0 1rem;
+
+    &:hover,
+    &:focus{
+        background-color: rgba(220, 38, 38, .9);
+    }
+}
+
+.cancelButton{
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    height: 2.25rem;
+    padding: 0 1rem;
+
+    &:hover,
+    &:focus{
+        color: var(--text-primary);
+        border-color: var(--text-primary);
+    }
+}
+
+.errorText{
+    color: #fecaca;
+    font-size: .85rem;
+    margin-left: .5rem;
 }
 
 .jobSection{
