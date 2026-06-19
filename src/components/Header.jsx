@@ -19,8 +19,8 @@ export function Header(){
     <nav className={styles.headerNav}>
         <NavLink to="">Buscar</NavLink>
         <NavLink className={({isActive})=> isActive ? 'navLinkActive' : ''} to="../search">Empleos</NavLink>
-        <NavLink to="">Empresas</NavLink>
-        <NavLink to="">Salarios</NavLink>
+        {/* <NavLink to="">Empresas</NavLink> */}
+        {/* <NavLink to="">Salarios</NavLink> */}
     </nav>
     <div className={styles.buttonSection}>
         <NavLink to="/publish" className={styles.headerButton}>

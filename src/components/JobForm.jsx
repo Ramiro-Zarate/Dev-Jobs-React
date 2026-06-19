@@ -1,11 +1,11 @@
 import styles from './JobForm.module.css'
 import { Link } from 'react-router'
 import { useJobForm } from '../hook/useJobForm'
+import { LOCATION_LABELS } from '../api/jobs'
 
 const blankForm = {
   titulo: '',
   empresa: '',
-  ubicacion: '',
   descripcion: '',
   technology: '',
   modalidad: '',
@@ -17,7 +17,6 @@ function toFormValues(job) {
   return {
     titulo: job.titulo || '',
     empresa: job.empresa || '',
-    ubicacion: job.ubicacion || '',
     descripcion: job.descripcion || '',
     technology: job.data?.technology || '',
     modalidad: job.data?.modalidad || '',
@@ -70,20 +69,6 @@ export function JobForm({
       </div>
 
       <div className={styles.field}>
-        <label htmlFor='job-ubicacion'>Ubicación</label>
-        <input
-          id='job-ubicacion'
-          name='ubicacion'
-          type='text'
-          required
-          value={form.ubicacion}
-          onChange={handleChange}
-          disabled={loading}
-          placeholder='Ej: remoto, cdmx, barcelona'
-        />
-      </div>
-
-      <div className={styles.field}>
         <label htmlFor='job-descripcion'>Descripción</label>
         <textarea
           id='job-descripcion'
@@ -122,7 +107,7 @@ export function JobForm({
         </div>
 
         <div className={styles.field}>
-          <label htmlFor='job-modalidad'>Modalidad</label>
+          <label htmlFor='job-modalidad'>Ubicación</label>
           <select
             id='job-modalidad'
             name='modalidad'
@@ -131,12 +116,10 @@ export function JobForm({
             onChange={handleChange}
             disabled={loading}
           >
-            <option value=''>Elegir modalidad</option>
-            <option value='remoto'>Remoto</option>
-            <option value='cdmx'>Ciudad de México</option>
-            <option value='guadalajara'>Guadalajara</option>
-            <option value='monterrey'>Monterrey</option>
-            <option value='barcelona'>Barcelona</option>
+            <option value=''>Elegir ubicación</option>
+            {Object.entries(LOCATION_LABELS).map(([value, label]) => (
+              <option key={value} value={value}>{label}</option>
+            ))}
           </select>
         </div>
 

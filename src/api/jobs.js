@@ -2,6 +2,20 @@ import { useJobsStore } from '../store/jobsStore'
 
 const API_URL = 'https://dev-jobs-api-sepia.vercel.app/jobs'
 
+export const LOCATION_LABELS = {
+  remoto: 'Remoto',
+  cdmx: 'Ciudad de México',
+  guadalajara: 'Guadalajara',
+  monterrey: 'Monterrey',
+  barcelona: 'Barcelona',
+  bsas: 'Buenos Aires',
+  madrid: 'Madrid',
+  valencia: 'Valencia',
+  bogota: 'Bogotá',
+  lima: 'Lima',
+  santiago: 'Santiago de Chile'
+}
+
 function generateId() {
   if (typeof crypto !== 'undefined' && crypto?.randomUUID) {
     return crypto.randomUUID()
@@ -13,7 +27,7 @@ function buildPayload(formData) {
   return {
     titulo: formData.titulo,
     empresa: formData.empresa,
-    ubicacion: formData.ubicacion,
+    ubicacion: LOCATION_LABELS[formData.modalidad] || '',
     descripcion: formData.descripcion || '',
     data: {
       technology: formData.technology || '',

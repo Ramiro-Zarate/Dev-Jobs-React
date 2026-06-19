@@ -101,8 +101,8 @@
     display: flex;
     align-items: center;
     gap: .5rem;
-    background-color: rgba(220, 38, 38, .15);
-    border: 1px solid rgba(220, 38, 38, .4);
+    /* background-color: rgba(220, 38, 38, .15); */
+    /* border: 1px solid rgba(220, 38, 38, .4); */
     padding: .35rem .5rem;
     border-radius: .5rem;
     flex-wrap: wrap;
