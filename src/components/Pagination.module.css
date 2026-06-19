@@ -17,6 +17,7 @@
 
         &:hover {
             background-color: var(--text-primary);
+            color: var(--background);
         }
     }
 }

@@ -73,6 +73,7 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
+    white-space: nowrap;
     transition: all .2s;
 
     &:hover,
@@ -86,6 +87,7 @@
     background-color: rgba(220, 38, 38, .15);
     color: #fecaca;
     border: 1px solid rgba(220, 38, 38, .4);
+    white-space: nowrap;
 
     &:hover,
     &:focus{
@@ -96,27 +98,29 @@
 }
 
 .confirmDelete{
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: .5rem;
     background-color: rgba(220, 38, 38, .15);
     border: 1px solid rgba(220, 38, 38, .4);
     padding: .35rem .5rem;
     border-radius: .5rem;
-    height: 3rem;
+    flex-wrap: wrap;
 }
 
-.confirmDelete span{
+.confirmDelete > span{
     color: #fecaca;
     font-size: .9rem;
     margin-inline: .25rem;
+    white-space: nowrap;
 }
 
 .confirmButton{
     background-color: rgba(220, 38, 38, .6);
     color: #fff;
-    height: 2.25rem;
+    height: 2.5rem;
     padding: 0 1rem;
+    white-space: nowrap;
 
     &:hover,
     &:focus{
@@ -128,8 +132,9 @@
     background-color: transparent;
     color: var(--text-secondary);
     border: 1px solid var(--border);
-    height: 2.25rem;
+    height: 2.5rem;
     padding: 0 1rem;
+    white-space: nowrap;
 
     &:hover,
     &:focus{
@@ -141,7 +146,10 @@
 .errorText{
     color: #fecaca;
     font-size: .85rem;
-    margin-left: .5rem;
+    flex-basis: 100%;
+    margin-top: .25rem;
+    margin-left: 0;
+    text-align: left;
 }
 
 .jobSection{

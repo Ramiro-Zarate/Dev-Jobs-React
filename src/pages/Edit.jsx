@@ -7,6 +7,7 @@ import {
   updateJob,
   useJobsStore
 } from '../api/jobs'
+import styles from './Edit.module.css'
 
 export default function EditPage() {
   const { jobId } = useParams()
@@ -52,7 +53,9 @@ export default function EditPage() {
     return (
       <main>
         <title>Editar empleo - DevJobs</title>
-        <p style={{ padding: '2rem', textAlign: 'center' }}>Cargando empleo...</p>
+        <section className={styles.statusContainer}>
+          <p>Cargando empleo...</p>
+        </section>
       </main>
     )
   }
@@ -61,7 +64,7 @@ export default function EditPage() {
     return (
       <main>
         <title>Empleo no encontrado - DevJobs</title>
-        <section style={{ padding: '2rem', textAlign: 'center' }}>
+        <section className={styles.statusContainer}>
           <h1>Empleo no encontrado</h1>
           <p>{error || 'El empleo que intentás editar no existe.'}</p>
           <button onClick={() => navigate('/search')}>
@@ -75,14 +78,7 @@ export default function EditPage() {
   return (
     <main>
       <title>Editar {job.titulo} - DevJobs</title>
-      <section style={{
-        maxWidth: '62rem',
-        margin: '3rem auto 0',
-        padding: '0 1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem'
-      }}>
+      <section className={styles.container}>
         <h1>Editar empleo</h1>
         <p>Modificá los datos de la oferta.</p>
         <JobForm

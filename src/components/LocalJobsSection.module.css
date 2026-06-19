@@ -21,7 +21,18 @@
 .grid {
     display: flex;
     flex-direction: column;
+}
+
+.grid > article {
+    margin-top: 0;
+}
+
+.grid > article:first-of-type {
+    border-radius: 1rem 1rem 0 0;
+    margin-top: 0;
+}
+
+.grid > article:last-of-type {
     border: 1px solid var(--border);
-    border-radius: 1rem;
-    overflow: hidden;
+    border-radius: 0 0 1rem 1rem;
 }

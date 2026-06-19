@@ -32,3 +32,23 @@
         text-decoration: none;
     }
 }
+
+.jobCard{
+    position: relative;
+}
+
+.localBadge{
+    position: absolute;
+    top: .5rem;
+    right: .75rem;
+    background-color: var(--primary-light);
+    color: var(--background);
+    font-size: .7rem;
+    font-weight: 600;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    z-index: 1;
+    line-height: 1.4;
+}
