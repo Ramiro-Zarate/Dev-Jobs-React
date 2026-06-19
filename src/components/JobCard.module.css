@@ -35,6 +35,22 @@
 
 .jobCard{
     position: relative;
+    justify-content: space-between;
+    gap: 1rem;
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    button {
+        height: 3rem;
+    }
 }
 
 .localBadge{
